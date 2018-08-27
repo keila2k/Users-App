@@ -9,7 +9,7 @@
 2. type `ng serve`
 
 ## INSIDE THE APP
-Login with one of the user's details below (email and password). PAY ATTENTION wheather you choose an admin or not (each user has an admin field with true / false value)
+Login with one of the user's details from the file UsersDB.json (email and password). PAY ATTENTION wheather you choose an admin or not (each user has an admin field with true / false value)
 After the login you'll transfer into the logged in user details.
 By pressing `habits` in the leftside nav-bar  you'll transfer into the user habits page, there you can see the user's habits
 and also add new habits (if the user has admin permissions he can also delete habits)
