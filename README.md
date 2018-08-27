@@ -1,7 +1,7 @@
 ### Users App
 
 ## SERVER
-1. Navigate to Servr Api directory with bash and type `npm install` 
+1. Navigate to Server Api directory with bash and type `npm install` 
 2. type `npm start`
 
 ## WEB APP
