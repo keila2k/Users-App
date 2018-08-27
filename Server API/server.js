@@ -429,7 +429,7 @@ app.post('/api/authenticate', function (req, res) {
         res.status(200).send(body);
     }
     else{
-        res.status(500).send({error: 'Email or password is incorrect'});
+        res.status(500).send('Email or password is incorrect');
     }
 });
 

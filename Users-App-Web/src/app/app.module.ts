@@ -19,6 +19,7 @@ import {RouterModule} from '@angular/router';
 import {routing} from './app.routing';
 import {AuthGuard} from './guard/auth.guard';
 import {SidenavService} from './services/sidenav.service';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {SidenavService} from './services/sidenav.service';
     SidenavComponent,
     LoginComponent,
     UserDetailsComponent,
+    AlertComponent,
   ],
   imports: [
     NgbModule,
