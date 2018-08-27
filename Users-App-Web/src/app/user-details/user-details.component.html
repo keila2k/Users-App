@@ -1,0 +1,45 @@
+
+<h3 *ngIf="currUser">{{currUser.name}} Details</h3>
+
+<div *ngIf="currUser" class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+      <td>Name: </td>
+      <td>{{currUser.name}}</td>
+    </tr>
+
+    <tr>
+      <td>Id:</td>
+      <td>{{currUser.id}}</td>
+    </tr>
+
+    <tr>
+      <td>Date of birth:</td>
+      <td>{{currUser.birthDate}}</td>
+    </tr>
+
+    <tr>
+      <td>Gender:</td>
+      <td>{{currUser.gender}}</td>
+    </tr>
+
+    <tr>
+      <td>Address:</td>
+      <td>{{currUser.address}}</td>
+    </tr>
+
+    <tr>
+      <td>Email:</td>
+      <td>{{currUser.email}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,8 @@
+<div *ngIf="sidenavService.visible">
+  <p class="logunt-btn"><a (click)="logout()">Logout</a></p>
+  <div class="sidenav">
+    <a (click)="changeRoute('/details/')">Details</a>
+    <a (click)="changeRoute('/habits/')">Habits </a>
+    <a *ngIf="administratorService.visible" (click)="changeRoute('/users')">Users</a>
+  </div>
+</div>

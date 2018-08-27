@@ -1,0 +1,41 @@
+<h3>All registered users:</h3>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of users">
+      <span class="userName">{{user.name}}</span>
+      <nav>
+        <a routerLink="/details/{{user.id}}">Details</a>
+        <a routerLink="/habits/{{user.id}}">Habits</a>
+        <a class="text-danger" (click)="deleteUser(user)">Delete</a>
+      </nav>
+    </li>
+  </ul>
+</div>
+<div class="container add-user-btn">
+  <button class="btn btn-outline-primary" (click)="ngxSmartModalService.getModal('addUserModal').open()">Add user</button>
+</div>
+<!-- Add User Modal-->
+<ngx-smart-modal #addUserModal identifier="addUserModal">
+  <form [formGroup]="newUserForm" id="rendered-form" (ngSubmit)="newUserSubmit()">
+    <div class="rendered-form">
+      <div class="fb-number form-group field-id-input"><label for="id-input" class="fb-number-label">ID<span class="fb-required">*</span><span class="tooltip-element" tooltip="9 digits">?</span></label><input type="number" class="form-control" name="id-input" formControlName="id" min="100000000" max="999999999" step="0" id="id-input" title="9 digits" required="required" aria-required="true"></div>
+      <div class="fb-text form-group field-name-input"><label for="name-input" class="fb-text-label">Full Name<span class="fb-required">*</span></label><input type="text" class="form-control" name="name-input" id="name-input" formControlName="name" required="required" aria-required="true"></div>
+      <div class="fb-text form-group field-username-input"><label for="username-input" class="fb-text-label">Username<span class="fb-required">*</span></label><input type="text" class="form-control" name="username-input" id="username-input" formControlName="username" required="required" aria-required="true"></div>
+      <div class="fb-text form-group field-email-input"><label for="email-input" class="fb-text-label">Email<span class="fb-required">*</span></label><input type="email" class="form-control" name="email-input" id="email-input" formControlName="email" required="required" aria-required="true"></div>
+      <div class="fb-text form-group field-password-input"><label for="password-input" class="fb-text-label">Password<span class="fb-required">*</span></label><input type="password" class="form-control" name="password-input" id="password-input" formControlName="password" required="required" aria-required="true"></div>
+      <div class="fb-select form-group field-gender-input"><label for="gender-input" class="fb-select-label">Gender<span class="fb-required">*</span></label><select class="form-control" name="gender-input" id="gender-input" formControlName="gender" required="required" aria-required="true"><option value="male" selected="true" id="gender-input-0">Male</option><option value="female" id="gender-input-1">Female</option></select></div>
+      <div class="fb-text form-group field-phone-input"><label for="phone-input" class="fb-text-label">Phone<span class="fb-required">*</span></label><input type="tel" class="form-control" name="phone-input" id="phone-input" formControlName="phone" required="required" aria-required="true"></div>
+      <div class="fb-date form-group field-birthdate-input"><label for="birthdate-input" class="fb-date-label">Birth date<span class="fb-required">*</span></label><input type="date" class="form-control" name="birthdate-input" id="birthdate-input" formControlName="birthDate" required="required" aria-required="true"></div>
+      <div class="fb-text form-group field-address-input"><label for="address-input" class="fb-text-label">Address<span class="fb-required">*</span></label><input type="text" class="form-control" name="address-input" id="address-input" formControlName="address" required="required" aria-required="true"></div>
+      <div class="fb-radio-group form-group field-admin-input"><label for="admin-input" class="fb-radio-group-label">Admin<span class="fb-required">*</span></label>
+        <div class="radio-group">
+          <div class="radio-inline"><input name="admin" id="admin-input-0"  formControlName="admin" required="required" aria-required="true" value="true" type="radio" checked="checked"><label for="admin-input-0">Yes</label></div>
+          <div class="radio-inline"><input name="admin" id="admin-input-1" required="required" formControlName="admin" aria-required="true" value="false" type="radio"><label for="admin-input-1">No</label></div>
+        </div>
+      </div>
+      <div class="fb-button form-group field-submit-input"><input [disabled]="f.id.errors || f.name.errors ||
+      f.username.errors || f.email.erros || f.password.errors ||
+      f.gender.errors || f.phone.errors || f.birthDate.errors || f.address.errors || f.admin.errors" type="submit" value="Submit" (click)="addUserModal.close()"></div>
+    </div>
+  </form>
+</ngx-smart-modal>

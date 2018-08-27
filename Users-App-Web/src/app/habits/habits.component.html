@@ -1,0 +1,41 @@
+<h3 *ngIf="currUser">{{currUser.name}} Habits</h3>
+<div *ngIf="currUser" class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let habit of habits">
+      <td class="userName">{{habit.title}}</td>
+      <td class="userName">{{habit.description}}</td>
+      <td><button *ngIf="administratorService.visible" type="button" class="btn btn-link btn-delete-habit" (click)="deleteHabit(habit)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container add-habit-btn">
+  <button class="btn btn-outline-primary" (click)="ngxSmartModalService.getModal('addHabitModal').open()">Add Habit</button>
+</div>
+
+<!-- Add Habit Modal -->
+<ngx-smart-modal #addHabitModal identifier="addHabitModal">
+  <form [formGroup]="newHabitForm" id="rendered-form" (ngSubmit)="newHabitSubmit()">
+    <div class="rendered-form">
+    <span>
+      <div class="fb-text form-group field-habit-title"><label for="habit-title" class="fb-text-label">Title<span class="fb-required">*</span></label><input type="text"  class="form-control" name="habit-title" id="habit-title" formControlName="title" aria-required="true" required></div>
+    </span>
+      <span>
+      <div class="fb-text form-group field-habit-description"><label for="habit-description" class="fb-text-label">Description<span class="fb-required">*</span></label><input type="text" class="form-control" name="habit-description" id="habit-description" formControlName="description" aria-required="true" required></div>
+    </span>
+      <div class="fb-button form-group field-submit-input"><input [disabled]="f.title.errors || f.description.errors" type="submit" value="Submit" (click)="addHabitModal.close()"></div>
+    </div>
+  </form>
+</ngx-smart-modal>
+
+
+

@@ -1,0 +1,33 @@
+nav{
+  text-align: right;
+}
+
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.userName{
+  float: left;
+  padding-top: 5px;
+}
+.list-group-item{
+  padding: 5px 10px;
+}
+
+.container{
+  width: 400px;
+  padding: 10px;
+}
+.add-user-btn{
+  text-align: center;
+}
+.field-submit-input{
+  text-align: center;
+}
+
+h3{
+  margin: 20px;
+}
